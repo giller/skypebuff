@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<link rel="shortcut icon" href="images/skype.ico">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+<!--<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="stylesheets/mystyle.css" type="text/css" media="screen" charset="utf-8">
+	<title>Magical</title>
+</head>
+<body>
+	<!--<iframe id=video width="420" height="315" src="//www.youtube.com/embed/bMh39-cqtkM?autoplay=1" frameborder="0" allowfullscreen></iframe>-->
+	<div id="header">
+	@html.include('menu')
+	</div>
+	<div id="container">
+	<p>Quotes last updated at: @model.timeMeta</p>
+	@{
+	var length = 0;
+	var key;
+
+	for (key in model){
+		if(model.hasOwnProperty(key)) length++;
+	}
+
+	var users = { gillerfish:'Gillerfish', reminiskype:'Remy', jacobx29:'Jacob', l2theuka:'Luka', sakkosekken1:'Sakko', lvhtngr:'Funky', smashbreak:'wyrmhole', wajioo:'dragn'};
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	for(var i = 0; i < length - 2; i++){
+		if(model[i] && model[i].body){
+			var date = new Date(model[i].timestamp*1000);
+
+			var hours = date.getHours();
+			if(hours < 10) hours = "0"+hours;
+
+			var minutes = date.getMinutes();
+			if(minutes <10) minutes = "0"+minutes;
+
+			var seconds = date.getSeconds();
+			if(seconds <10) seconds = "0"+seconds;
+
+			var day = date.getDay();
+			var daydate = date.getDate();
+			var dayname = days[day];
+			var month = date.getMonth();
+			var year = date.getFullYear();
+
+			<div class="quote-block">
+			<h2 class="quote-contents">@model[i].body</h2>
+			<p class="quote-author fancy">@users[model[i].author]</p>
+			<p class="quote-time fancy">@hours:@minutes:@seconds - @dayname, @daydate-@month-@year</p>
+			</div>
+			}
+		}
+	}
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="javascript/myscript.js"></script>
+</body>
+</html>

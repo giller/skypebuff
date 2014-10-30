@@ -1,0 +1,21 @@
+<div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading fancy">Les Quotes</a>
+
+		<ul>
+			<li class="pure-menu-selected"><a href="#">Home</a></li>
+			<li><a>
+				<label for="user">User</label>
+                <select id="user" class="pure-input-1-2">
+                    <option>All</option>
+					<option>Retrieving users...</option>
+                </select></a></li>
+			<li><a>
+				<label for="order">Order</label>
+                <select id="order" class="pure-input-1-2">
+                    <option value="0">Newest First</option>
+					<option value="1">Oldest First</option>
+                </select></a></li>
+		<li><a><button id="updateButton" name="button">Update</button></a></li>
+        <li><a href="#">Coming Soon...</a></li>
+    </ul>
+</div> 

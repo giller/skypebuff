@@ -1,0 +1,23 @@
+{
+  "name": "NodejsStarterApp",
+  "version": "0.0.1",
+  "description": "A sample nodejs app for Bluemix",
+  "dependencies": {
+    "bcrypt": "^0.8.0",
+    "express": "3.4.7",
+    "html-entities": "^1.0.10",
+    "jade": "1.1.4",
+    "mongodb": "^1.4.8",
+    "vash": "*",
+    "xml2js": "^0.4.4"
+  },
+  "engines": {
+    "node": "0.10.26"
+  },
+  "repository": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
